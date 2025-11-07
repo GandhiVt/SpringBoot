@@ -1,0 +1,4 @@
+com\github\springgit\SpringgitApplication.class
+com\github\springgit\controller\ProductoController.class
+com\github\springgit\model\Producto.class
+com\github\springgit\repository\ProductoRepository.class
