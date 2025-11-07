@@ -1,0 +1,29 @@
+-- 1. Crear la base de datos (si no existe)
+CREATE DATABASE IF NOT EXISTS txair_db; 
+
+-- 2. Usar la base de datos
+USE txair_db;
+
+-- 3. Crear la tabla productos
+CREATE TABLE IF NOT EXISTS productos (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(100) NOT NULL,
+    precio DECIMAL(10, 2) NOT NULL, -- Usamos DECIMAL para dinero, es más preciso
+    stock INT NOT NULL
+);
+
+-- 4. Insertar datos de ejemplo
+-- Borramos datos anteriores para evitar duplicados si ejecutas esto de nuevo
+TRUNCATE TABLE productos; 
+
+-- Insertamos datos que sirvan para los 3 reportes
+INSERT INTO productos (nombre, precio, stock) VALUES
+('Laptop Pro', 1500.00, 15),       -- Reporte 1 (Todos), Reporte 3 (Caro)
+('Mouse USB', 25.50, 50),         -- Reporte 1 (Todos)
+('Teclado Mecánico', 120.00, 5),    -- Reporte 1, Reporte 2 (Poco stock), Reporte 3 (Caro)
+('Monitor 4K', 350.75, 8),        -- Reporte 1, Reporte 2 (Poco stock), Reporte 3 (Caro)
+('Cable HDMI 2m', 15.00, 3),      -- Reporte 1, Reporte 2 (Poco stock)
+('Webcam HD', 45.00, 20);         -- Reporte 1 (Todos)
+
+-- 5. (Opcional) Verificar que los datos se insertaron
+SELECT  FROM productos;
